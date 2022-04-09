@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clock</title>
+    <meta charset="UTF-8" />
+    <link href="./src/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="clock">
+      <div id="time" onload="time()"></div>
+    </div>
+
+    <script>
+      setInterval(time(), 1000); //hii ni ya kuset interval for every milliseconds ama // yes na hii na ile la t inafanya same work?//i guess ndo maana nilikuwa nasema there is no need for it// yes i guess// yes i guess
+      function time() {
+        //acha tujaribu kuicommetn tuon ka it will work//nope its still needed nimejaribu kucomment both but inakosa kuwork yeah i guess inaitaji//both are needed
+        let date = new Date(); //hii ni ya kucreate date object //yeah na hiyo Date()
+        let hr = date.getHours(); //hizi get zina tumia date yenye imedeclariwa kuget the current hrs,min na seconds //yeah
+        let mm = date.getMinutes();
+        let s = date.getSeconds();
+        let session = "Am"; //hii ni ya kusidia hizi if statments iset the correct time in either AM ama PM ama? // yeah it works that way //next line yes please conti😁
+        if (hr == 0) {
+          //if the hrs is equal to zero so ni AM na ni 12.. yes//next line at what time does this apply//Ikifika 12 usiku😂😂😂// yes that is definetly correct 000//tuendelee
+          hr = 12;
+          session = "AM";
+        }
+        if (hr > 12) {
+          //if the time in hrs is greater that 12 then the hr is minused from 12 //yeah this is corect
+          hr = hr - 12;
+          session = "PM";
+        }
+        hr = hr < 10 ? "0" + hr : hr; //if the hr is less that 10 inaongeza zero kama 09hrs else inaandikwa 12? yeah like inawork kama ile ya stopwatch ndio ikue na two values either 09:00am or 12:00am//very true☺
+        mm = mm < 10 ? "0" + mm : mm; //hii ina work the same tu na hiyo ya hrs same na seconds yeah continue
+        s = s < 10 ? "0" + s : s;
+
+        let ctime = hr + ":" + mm + ":" + s + ":" + session; //hii ni ya kukuonyeshwa ile format yeneye hiyo time itadisplayiwa // yeah this ni kama output ////exactly//next
+        document.getElementById("time").innerHTML = ctime; //hii ni ya kueka hii ctime kwa html yetu?right // yes that is correct//lastly hiyo time()ni ya kucall the function// okay elaborate//okay let me show you what am talking about
+        // we can try removing ile ya juu tuone effect ...
+        let t = setTimeout(time(), 1000); //na hii ni ya nini😶// inafaa iwork kama intervals// seconds ishafanya adi//ooh nimeona🤗
+      }
+      time();
+      //this time ndo ya kucall the function okay //si we are done though hii set interval na time out si very clear // yeah acha well do a research on time intervals in javascript okay?sawasawa.... am glad umeexplain poa 🤗//thanchu😉
+    </script>
+  </body>
+</html>
